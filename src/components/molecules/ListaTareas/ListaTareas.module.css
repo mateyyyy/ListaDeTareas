@@ -4,9 +4,3 @@
     padding-left: 0;
     border-radius: 10px;
 }
-
-#ListaTareas:hover{
-    padding: 2px;
-    background-color: aliceblue;
-    transition: 1s;
-}
