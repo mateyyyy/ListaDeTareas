@@ -13,7 +13,7 @@ export default function VentanaPrincipal() {
   }
 
   const addTask = (titulo) => {
-    setTaskList([...taskList,titulo]);
+    setTaskList([titulo,...taskList]);
   }
   return (
     <div id={styles.PrinDiv}>
