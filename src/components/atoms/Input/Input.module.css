@@ -1,7 +1,9 @@
 #inputEntrada{
-    border-radius: 10px;
     background-color: none;
     border: none;
+    height: 95%;
+    width: 79%;
     margin-right: 10px;
-    text-align: center; 
+    outline: none;
+    filter: none;
 }

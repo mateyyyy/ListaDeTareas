@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "./boton.module.css"
 
 export default function Boton() {
   return (
     <>
-      <button> ADD</button>
+      <button id={styles.boton}>ADD</button>
     </>
   );
 }

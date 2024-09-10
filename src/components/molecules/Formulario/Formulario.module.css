@@ -1,4 +1,34 @@
 #PrinDiv{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
+    filter: blur(0.1rem);
+    transition: .5s;
+}
+
+button {
+    filter: none; /* Evita el blur en los botones */
+}
+
+#PrinDiv1{
+    transition: .5s;
+    display: flex;
+    justify-content: space-between;
+    background-color: #121212;
+    width: 100%;
+}
+
+#form0{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
+#form1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
