@@ -16,10 +16,16 @@ export default function VentanaPrincipal() {
     setTaskList([titulo,...taskList]);
   }
   return (
-    <div id={styles.PrinDiv}>
+  <div id={styles.PrinDiv}>
+    <div id={styles.tituloDiv}>
         <Titulo></Titulo>
-        <Formulario addTask={addTask}></Formulario>
+    </div>  
+    <div id={styles.fixedForm}>
+          <Formulario addTask={addTask}></Formulario>
+    </div>
+    <div id={styles.taskDiv}>
         <ListaTareas taskList={taskList} deleteTask={deleteTask}></ListaTareas>
     </div>
+  </div>
   )
 }

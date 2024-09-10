@@ -5,7 +5,9 @@ import VentanaPrincipal from './components/molecules/VentanaPrincipal'
 function App() {
   return (
     <>
+    <div id='ventanaPrin'>
       <VentanaPrincipal></VentanaPrincipal>
+      </div>
     </>
   )
 }
