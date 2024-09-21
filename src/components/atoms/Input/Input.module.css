@@ -1,9 +1,7 @@
 #inputEntrada{
-    background-color: none;
     border: none;
     height: 95%;
-    width: 79%;
-    margin-right: 10px;
+    width: 100%;
     outline: none;
-    filter: none;
+    background-color: #383838;
 }

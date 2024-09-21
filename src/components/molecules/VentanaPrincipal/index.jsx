@@ -23,6 +23,7 @@ export default function VentanaPrincipal() {
     <div id={styles.fixedForm}>
           <Formulario addTask={addTask}></Formulario>
     </div>
+    
     <div id={styles.taskDiv}>
         <ListaTareas taskList={taskList} deleteTask={deleteTask}></ListaTareas>
     </div>

@@ -1,6 +1,17 @@
 #ListaTareas{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
     text-decoration: none;
     list-style: none;
     padding-left: 0;
-    border-radius: 10px;
 }
+
+  
+@media (max-width: 768px) {
+    /* Cambiar estilos para pantallas más pequeñas */
+    #contenedorTarea{
+        width: calc(100%-64px);
+    }
+  }

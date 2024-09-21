@@ -2,16 +2,36 @@
     display: flex;
     flex-direction: column;
     top: 0;
+    align-items: center;
 }
 
 #fixedForm{
     position: fixed;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+    width: 50vw;
+    margin-top: 112px;
+
 }
 
+
+@media (max-width: 768px) {
+    /* Cambiar estilos para pantallas más pequeñas */
+    #fixedForm {
+    margin: 112px 16px 0px 16px;
+      width: 100vw;
+      left: 0;
+      max-width: calc(100vw - 32px);
+    }
+  }
+
+
 #taskDiv{
-    margin-top: 30px;
+    margin-top: 48px;
+    width: 100%;
+}
+
+#tituloDiv{
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: start;
 }

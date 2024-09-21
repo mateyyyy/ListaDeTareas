@@ -11,3 +11,11 @@
   flex-direction: column;
   top: 0;
 }
+
+
+@media (max-width: 768px) {
+  /* Cambiar estilos para pantallas más pequeñas */
+  #ventanaPrin {
+    width: 100vw;
+  }
+}
