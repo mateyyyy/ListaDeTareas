@@ -2,9 +2,27 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    filter: blur(0.1rem);
     transition: .5s;
     border-radius: 4px;
+}
+
+#fondoForm{
+    position: absolute;
+    background-color: #383838;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: .5s;
+}
+
+#fondoForm1{
+    transition: .5s;
+    position: absolute;
+    background-color: #383838;
+    width: 100%;
+    height: 100%;
+    filter: blur(.5rem);
+    z-index: -1;
 }
 
 #PrinDiv1{
@@ -21,7 +39,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 8px;
 }
 
 
@@ -30,4 +47,13 @@
     display: flex;
     justify-content: space-between;
     padding: 8px;
+}
+
+#formContainer{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
 }

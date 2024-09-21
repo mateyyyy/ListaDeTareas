@@ -10,8 +10,10 @@ export default function Tarea({nombre, deleteTask}) {
   }
   return (
     <div id={styles.contenedorTarea}>
+      <div id={styles.checkmarkH2}>
         <input type="checkbox" onChange={() => setCheck(!checked)}/>
-        <h2 className={checked? styles.check : styles.notCheck}>{nombre}</h2>
+      <h2 className={checked? styles.check : styles.notCheck}>{nombre}</h2>
+        </div>
         <TrashCanButon deleteTask={activarDelete}></TrashCanButon>
     </div>
   )

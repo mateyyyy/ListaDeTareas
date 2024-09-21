@@ -10,8 +10,10 @@ export default function Formulario({addTask}) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setValue("");
-    addTask(value);
+    if(value.trim()!=''){
+      addTask(value);
+      setValue("");
+    }
   }
 
   useEffect(() => {
@@ -28,8 +30,12 @@ export default function Formulario({addTask}) {
   return (
     <div id={scroll? styles.PrinDiv:styles.PrinDiv1}>
       <form action="" onSubmit={(e) => onSubmit(e)} id={scroll? styles.form1:styles.form0}>
-        <Input value={value} setValue={setValue} ></Input>
-        <Boton></Boton>
+        <div id={styles.formContainer}>
+          <Input value={value} setValue={setValue}></Input>
+          <Boton></Boton>
+        </div>
+        <div id={scroll? styles.fondoForm1 : styles.fondoForm}></div>
+
       </form>
     </div>
   )
