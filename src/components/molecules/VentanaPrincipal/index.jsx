@@ -1,32 +1,36 @@
-import React, { useState } from 'react'
-import Formulario from '../Formulario'
+import React, { useContext, createContext , useState } from 'react'
 import styles from './VentanaPrincipal.module.css'
-import Titulo from '../../atoms/Titulo'
-import ListaTareas from '../ListaTareas'
+import Header from '../Header'
+import MenuDesplegado from '../MenuDesplegado';
+import { useLocation } from 'react-router-dom';
 
+export const MenuContext = createContext();
 
 export default function VentanaPrincipal() {
-  const [taskList, setTaskList] = useState([]);
-
-  const deleteTask = (nombre) => {
-    setTaskList(taskList.filter((tarea) => tarea != nombre));
+  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  var titulo = "";
+  switch (location.pathname){
+    case '/home':
+      titulo = "Inicio";
+      break;
+    case '/home/my-projects':
+      titulo = "Mis proyectos";
+      break;
+    case '/home/my-stories':
+      titulo = "Mis historias";
+      break;
   }
 
-  const addTask = (titulo) => {
-    setTaskList([titulo,...taskList]);
-  }
   return (
-  <div id={styles.PrinDiv}>
-    <div id={styles.tituloDiv}>
-        <Titulo></Titulo>
-    </div>  
-    <div id={styles.fixedForm}>
-          <Formulario addTask={addTask}></Formulario>
-    </div>
-    
-    <div id={styles.taskDiv}>
-        <ListaTareas taskList={taskList} deleteTask={deleteTask}></ListaTareas>
-    </div>
-  </div>
-  )
+  <>
+    <MenuContext.Provider value={{isOpen, setIsOpen}}>
+
+      <MenuDesplegado></MenuDesplegado>
+      <Header titulo={titulo}/>
+
+    </MenuContext.Provider>
+
+  </>  
+)
 }

@@ -29,7 +29,7 @@ export default function Formulario({addTask}) {
 
   return (
     <div id={scroll? styles.PrinDiv:styles.PrinDiv1}>
-      <form action="" onSubmit={(e) => onSubmit(e)} id={scroll? styles.form1:styles.form0}>
+      <form action="" onSubmit={(e) => onSubmit(e)} id={styles.form0}>
         <div id={styles.formContainer}>
           <Input value={value} setValue={setValue}></Input>
           <Boton></Boton>

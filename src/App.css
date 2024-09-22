@@ -1,21 +1,13 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+  box-sizing: border-box;
 }
 
 #ventanaPrin{
-  width: 50vw;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   top: 0;
-}
-
-
-@media (max-width: 768px) {
-  /* Cambiar estilos para pantallas más pequeñas */
-  #ventanaPrin {
-    width: 100vw;
-  }
 }
