@@ -3,6 +3,7 @@ import App from "../App";
 import Projects from "../pages/Projects";
 import Stories from "../pages/Stories";
 import Project from "../components/molecules/Project";
+import { Navigate } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
@@ -29,4 +30,10 @@ export const router = createBrowserRouter([
     path: "/settings",
     element: <div><h1>Settings</h1></div>,
   },
+
+  {
+    path: "/",
+    element: <Navigate to="/home" />,
+  },
+
 ]);
