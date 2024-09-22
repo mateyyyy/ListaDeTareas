@@ -12,12 +12,6 @@ export const router = createBrowserRouter([
       {
         path: "my-projects",
         element: <Projects />,
-        children: [
-          {
-          path: "project-:n",
-          element: <Project />,
-        },
-      ],
       },
       {
         path: "my-stories",
@@ -25,6 +19,12 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
+  {
+    path: "home/my-projects/:n",
+    element: <Project />, // Project page, Projects component not shown
+  },
+
   {
     path: "/settings",
     element: <div><h1>Settings</h1></div>,
