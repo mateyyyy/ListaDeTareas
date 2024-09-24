@@ -1,0 +1,43 @@
+#PrinDivProject{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+#CardContainer{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card{
+    display: flex;
+    justify-content: center;
+    padding: 3rem;    
+    background-color: #121212;
+    border-radius: 4px;
+    width: 70%;
+}
+
+.aLink{
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    #CardContainer{
+        width: 80%;
+        flex-direction: column;
+    }    
+
+}
+
+@media (min-width: 768px) {
+    #CardContainer{
+        width: 25%;
+        flex-direction: row;
+    }    
+
+}

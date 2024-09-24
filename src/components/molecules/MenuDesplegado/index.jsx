@@ -17,13 +17,13 @@ export default function MenuDesplegado() {
                     <h1>Marca</h1>
                 </div>
                 <div id={styles.Nav}>
-                    <Link to={"/home"} onClick={() => setIsOpen(false)}>
+                    <Link to={"/"} onClick={() => setIsOpen(false)}>
                         <button className={styles.botonNav}>Inicio</button>
                     </Link>
-                    <Link to={"/home/my-projects"} onClick={() => setIsOpen(false)}>
+                    <Link to={"/my-projects"} onClick={() => setIsOpen(false)}>
                         <button className={styles.botonNav}>Mis proyectos</button>
                     </Link>
-                    <Link to={"/home/my-stories"} onClick={() => setIsOpen(false)}>
+                    <Link to={"/my-stories"} onClick={() => setIsOpen(false)}>
                         <button className={styles.botonNav}>Mis historias</button>
                     </Link>
                 </div>

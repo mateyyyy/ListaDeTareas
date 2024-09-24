@@ -11,13 +11,13 @@ export default function VentanaPrincipal() {
   const [isOpen, setIsOpen] = useState(false);
   var titulo = "";
   switch (location.pathname){
-    case '/home':
+    case '/':
       titulo = "Inicio";
       break;
-    case '/home/my-projects':
+    case '/my-projects':
       titulo = "Mis proyectos";
       break;
-    case '/home/my-stories':
+    case '/my-stories':
       titulo = "Mis historias";
       break;
   }

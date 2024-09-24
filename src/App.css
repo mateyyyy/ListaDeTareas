@@ -11,3 +11,7 @@
   flex-direction: column;
   top: 0;
 }
+
+a:link, :visited, :hover, :active{
+  color: #fff;
+}

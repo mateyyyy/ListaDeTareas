@@ -1,15 +1,18 @@
 #cardContainer{
     width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #PrinDivProject{
     width: 100%;
     display: flex;
     justify-content: center;
-
 }
 
 .card{
+    width: 70%;
     padding: 3rem;    
     background-color: #121212;
     margin-top: 2rem;
@@ -18,11 +21,20 @@
 
 @media (max-width: 768px) {
     #cardContainer{
-        width: 50%;
-    }
-    
+        width: 100%;
+        flex-direction: column;
+    }    
 }
 
-a:link, :visited, :hover, :active{
-    color: #fff;
+@media (min-width: 768px) {
+    #cardContainer{
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }    
+    .card{
+        box-sizing: border-box;
+        width: 20rem;
+    }
 }
