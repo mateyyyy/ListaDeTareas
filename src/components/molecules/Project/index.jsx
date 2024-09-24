@@ -15,7 +15,7 @@ export default function Project() {
       <div id={styles.PrinDivProject}>
         <div id={styles.CardContainer}>
           {Epicas.map((Epica, index)=> 
-            <Link to={`${index + 1}`} className={styles.aLink}><div className={styles.card}>{Epica}</div></Link>
+            <Link to={`${index + 1}`} className={styles.card}>{Epica}</Link>
           )}
         </div>
       </div>
