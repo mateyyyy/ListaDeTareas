@@ -4,22 +4,14 @@ import styles from './Login.module.css'
 export default function Login() {
 
     const data = {
-        "email": "waltermolina@msn.com",
-        "username": "waltermolina",
-        "password": "1234",
-        "name": {
-            "first": "Walter",
-            "last": "Molina"
-        }
-      };
+      "username" : "waltermolina",
+      "password": "1234"
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
-        // Aquí puedes mandar los datos del formulario o los datos de ejemplo
         
-    
-        fetch('https://lamansysfaketaskmanagerapi.onrender.com/login', {
+        fetch("https://lamansysfaketaskmanagerapi.onrender.com/api/login", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -29,6 +21,7 @@ export default function Login() {
           .then((response) => response.json())
           .then((data) => {
             console.log('Success:', data);
+            localStorage.setItem('token', data.token);
           })
           .catch((error) => {
             console.error('Error:', error);
