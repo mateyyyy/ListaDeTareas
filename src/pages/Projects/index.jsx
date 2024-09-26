@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import styles from './Projects.module.css'
 
 export default function Projects() {
+    const [proyectos, setProyectos] = useState([]); 
 
-    const proyectos = ['Proyecto 1', 'Proyecto 2', 'Proyecto 3'];
-
-    const lookProjects = () => {
+    useEffect(()=>{
       fetch("https://lamansysfaketaskmanagerapi.onrender.com/api/projects", {
         method: 'GET',
         headers: {
@@ -16,22 +15,22 @@ export default function Projects() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log('Success:', data);
+          setProyectos(data.data.map((elemento)=> elemento));
+          console.log("Data : ");
         })
         .catch((error) => {
           console.error('Error:', error);
         });
-    }
+    },[])
 
   return (
     <>
       <div id={styles.PrinDivProject}>
-        <button onClick={lookProjects}>GET PROJECTS</button>
         <div id={styles.cardContainer}> 
-            {proyectos.map((name, index) => (
-                <Link to={`/my-projects/${index + 1}`} className={styles.card}>
-                      {name}
-                  </Link>
+            {proyectos.map((project, index) => (
+                <Link to={`/my-projects/${project._id}`} className={styles.card} key={project._id}>
+                  {project.name}
+                </Link>
             ))}
         </div>
     </div>

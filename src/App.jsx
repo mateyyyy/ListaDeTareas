@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import './App.css'
 import VentanaPrincipal from './components/molecules/VentanaPrincipal'
 import { Outlet } from 'react-router-dom'

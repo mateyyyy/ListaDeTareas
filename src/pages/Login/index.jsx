@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import styles from './Login.module.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
@@ -7,6 +8,8 @@ export default function Login() {
       "username" : "waltermolina",
       "password": "1234"
     }
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +25,8 @@ export default function Login() {
           .then((data) => {
             console.log('Success:', data);
             localStorage.setItem('token', data.token);
-          })
+            navigate('/');
+        })
           .catch((error) => {
             console.error('Error:', error);
           });
