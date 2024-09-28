@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import styles from './Projects.module.css'
+import Card from '../../components/molecules/Card';
 
 export default function Projects() {
     const [proyectos, setProyectos] = useState([]); 
@@ -15,8 +16,7 @@ export default function Projects() {
       })
         .then((response) => response.json())
         .then((data) => {
-          setProyectos(data.data.map((elemento)=> elemento));
-          console.log("Data : ");
+          setProyectos(data.data.map((elemento) => elemento));
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -27,10 +27,10 @@ export default function Projects() {
     <>
       <div id={styles.PrinDivProject}>
         <div id={styles.cardContainer}> 
-            {proyectos.map((project, index) => (
-                <Link to={`/my-projects/${project._id}`} className={styles.card} key={project._id}>
-                  {project.name}
-                </Link>
+            {proyectos.length==0 ? 
+            <p>Cargando proyectos</p>:
+            proyectos.map((project, index) => (
+              <Card key={project.id} content={project.name} url={`/my-projects/${project._id}`}></Card>
             ))}
         </div>
     </div>
