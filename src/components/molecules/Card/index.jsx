@@ -8,7 +8,9 @@ export default function Card({url, content}) {
 
   return (
     <>
-        <Link to={`${url}`} className={styles.card}>{content}</Link>
+    {url ? <><Link to={`${url}`} className={styles.card}>{content}</Link></> 
+      : 
+    <div className={styles.card}>{content}</div>}
     </>
   )
 }

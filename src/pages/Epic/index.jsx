@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Epic.module.css'
-import HeaderGoBack from '../HeaderGoBack'
+import HeaderGoBack from '../../components/molecules/HeaderGoBack'
 import { useParams } from 'react-router-dom'
-import Card from '../Card'
+import Card from '../../components/molecules/Card'
 import { useEffect } from 'react'
 
 export default function Epic() {

@@ -3,15 +3,16 @@ import App from "../App";
 import Projects from "../pages/Projects";
 import Stories from "../pages/StoriesOfEpic";
 import Project from "../components/molecules/Project";
-import Epic from "../components/molecules/Epic";
+import Epic from "../pages/Epic";
 import { Navigate } from "react-router-dom";
 import Login from "../pages/Login";
 import ProtectedRoute from "../components/molecules/ProtectedRoute";
 import StoriesOfEpic from "../pages/StoriesOfEpic";
+import StoriesGral from "../pages/StoriesGral";
 
 export const router = createBrowserRouter([
   {
-    path: "/",  // Primera ruta
+    path: "/", 
     element: <div><ProtectedRoute/><App /></div>,
     children: [
       {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-stories",
-        element: <Stories />,
+        element: <StoriesGral />,
       },
     ],
   },

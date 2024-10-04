@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom'
 import HeaderGoBack from '../../components/molecules/HeaderGoBack'
 import Card from '../../components/molecules/Card';
 import styles from './StoriesOfEpic.module.css'
+import Stories from '../../components/molecules/Stories';
+
 export default function StoriesOfEpic() {
-  const {m} = useParams(); //EPIC ID
+  const {m} = useParams();
   const {j} = useParams();
 
   const [tasks, setTasks] = useState([]);
@@ -19,7 +21,8 @@ export default function StoriesOfEpic() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setTasks(data.data.map((elemento) => elemento));
+        setTasks(data.data.map((elemento) => elemento)),
+        console.log(data);
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -31,11 +34,7 @@ export default function StoriesOfEpic() {
       <HeaderGoBack titulo={"Historias de usuario"}>
       </HeaderGoBack>
       <div id={styles.PrinDivProject}>
-        <div id={styles.cardContainer}> 
-          {tasks.length==0?
-          <p>cargando...</p>:
-          tasks.map((elemento) => <Card content={elemento.name}></Card>)}
-        </div>
+        <Stories tasks={tasks}></Stories>
       </div>
  </>
   )

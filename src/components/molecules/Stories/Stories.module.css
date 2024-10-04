@@ -1,0 +1,63 @@
+#cardContainer{
+    width: 25%;
+    display: flex;
+    justify-content: start;
+    align-content: center;
+    gap: 1rem;
+    box-sizing: border-box;
+
+}
+
+
+
+.descripcionContainer{
+    word-wrap: break-word;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.story{
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: #111;
+    border-radius: 4px;
+    padding: 16px;
+    flex-wrap: wrap;
+}
+
+.checkbox{
+    transform: scale(2);
+    margin-right: 1rem;
+}
+
+.inputAndName{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: start;
+}
+
+.divisor{
+    width: 100%;
+    border: 1px solid #222222;
+}
+
+
+@media (max-width: 768px) {
+    #cardContainer{
+        width: 90%;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 768px) {
+    #cardContainer{
+        width: 80%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}

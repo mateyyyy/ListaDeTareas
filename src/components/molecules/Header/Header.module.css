@@ -18,3 +18,10 @@
     background-color: #E2E2E2;
     color: #222222;
 }
+
+@media (max-width: 768px) {
+    #HeaderH1{
+        flex-direction: column;
+        font-size: 3vh;
+    }    
+}

@@ -1,29 +1,9 @@
-#cardContainer{
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 #PrinDivProject{
+    margin-top: 5vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-@media (max-width: 768px) {
-    #cardContainer{
-        width: 100%;
-        flex-direction: column;
-    }    
-}
-
-@media (min-width: 768px) {
-    #cardContainer{
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }    
+    box-sizing: border-box;
 }
