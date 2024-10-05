@@ -6,4 +6,32 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+#formContainer{
+    position: absolute;
+    background-color: #353535;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    margin-top: 25vh;
+    width: 15%;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.input{
+    height: 2vh;
+    outline: none;
+    border: black 1px;
+    border-radius: 4px;
+    padding: 2vh;
 }

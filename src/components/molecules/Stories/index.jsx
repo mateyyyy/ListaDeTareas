@@ -1,29 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Stories.module.css'
-import { stat } from 'fs';
-export default function Stories({tasks}) {
+export default function Stories({tasks, setNewState, newState}) {
 
-  const state = (status) => {
-    if(status=='todo'){
-      return 'running';
-    }
-    if(status=='running'){
-      return 'todo';
-    }
-  }
-
-  const changeState = () => {
-    fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/${id}`, {
+  const changeState = (task) => {
+    fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/${task._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         'auth': localStorage.getItem('token'),
       },
-      
+      body: JSON.stringify({
+        name: task.name,
+        description: task.description,
+        story: task.story,
+        created: task.created,
+        dueDate: task.dueDate,
+        done: !task.done,
+      })
     })
     .then((response) => response.json())
     .then((data) => {
-      setStories(data.data.map((elemento)=> elemento));
+      setNewState(newState+1);
     })
   }
 
@@ -35,7 +32,7 @@ export default function Stories({tasks}) {
               tasks.map((elemento) => 
               <div className={styles.story}>
               <div className={styles.inputAndName}>
-                <input className={styles.checkbox} type='checkbox' checked={elemento.done}/>
+                <input onClick={()=>(changeState(elemento))} className={styles.checkbox} type='checkbox' checked={elemento.done}/>
                 {elemento.name}
               </div>
               {elemento.description!=null ? 
