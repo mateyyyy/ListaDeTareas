@@ -11,15 +11,14 @@
 }
 
 #formContainer{
-    position: absolute;
+    position: relative;
     background-color: #353535;
     padding: 15px;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     z-index: 10;
-    margin-top: 25vh;
-    width: 15%;
+    width: auto;
 }
 
 #form{
