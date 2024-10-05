@@ -1,6 +1,32 @@
 import React from 'react'
 import styles from './Stories.module.css'
+import { stat } from 'fs';
 export default function Stories({tasks}) {
+
+  const state = (status) => {
+    if(status=='todo'){
+      return 'running';
+    }
+    if(status=='running'){
+      return 'todo';
+    }
+  }
+
+  const changeState = () => {
+    fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth': localStorage.getItem('token'),
+      },
+      
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      setStories(data.data.map((elemento)=> elemento));
+    })
+  }
+
   return (
         <>
             <div id={styles.cardContainer}> 
