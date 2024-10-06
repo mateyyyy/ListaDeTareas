@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Projects from "../pages/Projects";
 import Stories from "../pages/StoriesOfEpic";
-import Project from "../components/molecules/Project";
+import Project from "../pages/Project";
 import Epic from "../pages/Epic";
 import { Navigate } from "react-router-dom";
 import Login from "../pages/Login";
