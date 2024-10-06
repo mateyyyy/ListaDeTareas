@@ -13,16 +13,13 @@ export default function Project() {
   project.description;
 
   useEffect(()=>{
-    get(`/projects/${n}/epics`, setEpics);
-    console.log(epics);
-      
+    get(`/projects/${n}/epics`, setEpics);      
     get(`/projects/${n}`, setProject)
-    console.log("proyecto : " + project);
   },[n]);
 
   return (
     <>
-      <HeaderGoBack titulo={"Proyecto : " + (epics.length ==0 ? "Cargando" : project.name)}></HeaderGoBack>
+      <HeaderGoBack titulo={"Proyecto"}></HeaderGoBack>
       {project.length == 0 ? 
         <p>CARGANDO...</p> 
       : 

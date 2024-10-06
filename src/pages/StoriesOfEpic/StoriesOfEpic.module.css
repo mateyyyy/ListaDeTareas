@@ -1,6 +1,5 @@
 
 #PrinDivProject{
-    margin-top: 5vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -11,14 +10,17 @@
 }
 
 #formContainer{
-    position: relative;
+    position: absolute;
     background-color: #353535;
-    padding: 15px;
+    padding: 2rem;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     z-index: 10;
     width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #form{

@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import styles from './Projects.module.css'
-import Card from '../../components/molecules/Card';
 import CardContainer from '../../components/molecules/CardContainer';
 import { get } from '../../utils/ApiRequests';
 

@@ -21,7 +21,7 @@ export default function Epic() {
 
 
   return (<>
-    <HeaderGoBack titulo={"Epica : " + (epic.length==0? "Cargando" : epic.name)}></HeaderGoBack>
+    <HeaderGoBack titulo={"Epica"}></HeaderGoBack>
     
     {epic.length!=0?
     (
@@ -31,7 +31,7 @@ export default function Epic() {
       </>
     )
       :
-    (<p>No hay historias cargadas...</p>)
+    (<p>CARGANDO...</p>)
     }
     
     </>
