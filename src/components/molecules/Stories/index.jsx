@@ -30,9 +30,9 @@ export default function Stories({tasks, setNewState, newState}) {
               {tasks.length==0?
               <p>cargando...</p>:
               tasks.map((elemento) => 
-              <div className={styles.story}>
+              <div key={elemento._id} className={styles.story}>
               <div className={styles.inputAndName}>
-                <input onClick={()=>{changeState(elemento)}} className={styles.checkbox} type='checkbox' checked={elemento.done}/>
+                <input onChange={()=>{changeState(elemento)}} className={styles.checkbox} type='checkbox' checked={elemento.done}/>
                 {elemento.name}
               </div>
               {elemento.description!=null ? 

@@ -4,7 +4,12 @@ import Card from '../Card'
 export default function InfoDisplay({element}) {
   return (
     <div id={styles.PrinDiv}>
-        <Card content={"Titulo : Hoasd \n\r Descripcion : Hola como te va"} ></Card>
+        <Card content={ 
+          <>
+            <h3>Nombre : {element.name}</h3>
+            <p>Descripcion : {element.description.slice(0,25)}</p>
+          </>
+      } ></Card>
     </div>
   )
 }

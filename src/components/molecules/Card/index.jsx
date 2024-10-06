@@ -10,7 +10,7 @@ export default function Card({url, content}) {
     <>
     {url ? <><Link to={`${url}`} className={styles.card}>{content}</Link></> 
       : 
-    <div className={styles.card}>{content}</div>}
+    <div className={styles.card}>{content} {}</div>}
     </>
   )
 }

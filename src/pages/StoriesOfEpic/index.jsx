@@ -49,15 +49,7 @@ export default function StoriesOfEpic() {
   }
 
   useEffect(() => {
-    get(`/stories/${j}/tasks`)
-      .then((response) => response.json())
-      .then((data) => {
-        setTasks(data.data.map((elemento) => elemento)),
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    get(`/stories/${j}/tasks`, setTasks);
   },[newState])
 
   return (

@@ -9,14 +9,7 @@ export default function Projects() {
     const [proyectos, setProyectos] = useState([]); 
 
     useEffect(()=>{
-        get('/projects')
-        .then((response) => response.json())
-        .then((data) => {
-          setProyectos(data.data.map((elemento) => elemento));
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
+        get('/projects', setProyectos);
     },[])
 
   return (

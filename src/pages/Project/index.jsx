@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import HeaderGoBack from '../../components/molecules/HeaderGoBack'
 import CardContainer from '../../components/molecules/CardContainer'
 import { get } from '../../utils/ApiRequests'
-
+import InfoDisplay from '../../components/molecules/ProjectInfo'
 export default function Project() {
 
   const { n } = useParams();
@@ -13,19 +13,11 @@ export default function Project() {
   project.description;
 
   useEffect(()=>{
-    get(`/projects/${n}/epics`)
-      .then((response) => response.json())
-      .then((data) => {
-        setEpics(data.data.map((elemento)=> elemento));
-      });
+    get(`/projects/${n}/epics`, setEpics);
+    console.log(epics);
       
-    get(`/projects/${n}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setProject(data.data);
-        console.log(data);
-      })
-
+    get(`/projects/${n}`, setProject)
+    console.log("proyecto : " + project);
   },[n]);
 
   return (
@@ -35,6 +27,7 @@ export default function Project() {
         <p>CARGANDO...</p> 
       : 
       <>
+      <InfoDisplay element={project}></InfoDisplay>
       <CardContainer elements={epics}></CardContainer>   
       </>
       }

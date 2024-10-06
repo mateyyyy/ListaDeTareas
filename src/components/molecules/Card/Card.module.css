@@ -4,9 +4,12 @@
     margin-top: 2rem;
     border-radius: 4px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    word-wrap: wrap;
+
 }
 
 @media (min-width: 768px) {

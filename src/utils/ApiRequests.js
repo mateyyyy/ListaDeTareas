@@ -5,12 +5,22 @@ const header = {
   'auth': localStorage.getItem('token')
 }
 
-export const get = async (url) => {
+export const get = async (url, setElements) => {
     const response = fetch(`${BASE_URL}${url}`
         ,{
             method: 'GET',
             headers: header,
+        })
+        .then((response) => {
+            return response.json()})
+        .then((data) => {
+            console.log(data);
+          setElements(data.data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
         });
+        ;
     return await response;
 }
 
