@@ -25,6 +25,7 @@ export default function Login() {
           .then((data) => {
             console.log('Success:', data);
             localStorage.setItem('token', data.token);
+            localStorage.setItem('userID', data.user._id);
             navigate('/');
         })
           .catch((error) => {

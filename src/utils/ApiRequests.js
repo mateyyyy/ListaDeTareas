@@ -13,10 +13,15 @@ export const get = async (url, setElements) => {
         })
         .then((response) => {
             return response.json()})
-        .then((data) => {
-            console.log(data);
-          setElements(data.data);
-        })
+            .then((data) => {
+                console.log('Respuesta de la API:', data);
+               
+                if (data.data) {
+                  setElements(data.data);
+                } else {
+                  setElements(data);
+                }
+              })
         .catch((error) => {
           console.error('Error:', error);
         });
@@ -30,6 +35,9 @@ export const post = async (url, body) => {
             method: 'POST',
             headers: header,
             body: JSON.stringify(body),
-        });
+        })
+        .then((response) => {
+            return response.json()}
+        );
     return await response;
 }
