@@ -5,7 +5,7 @@ const header = {
   'auth': localStorage.getItem('token')
 }
 
-export const get = async (url, setElements) => {
+export const get = (url, setElements) => {
     const response = fetch(`${BASE_URL}${url}`
         ,{
             method: 'GET',
@@ -26,7 +26,7 @@ export const get = async (url, setElements) => {
           console.error('Error:', error);
         });
         ;
-    return await response;
+    return response;
 }
 
 export const post = async (url, body) => {

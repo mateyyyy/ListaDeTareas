@@ -17,7 +17,7 @@ export default function Projects() {
 
     return (
       <>
-        <AddForm type={'PROJECT'} updateState={updateState}></AddForm>
+        <AddForm type={'projects'} updateState={updateState}></AddForm>
         {proyectos.length > 0 ?
           <CardContainer elements={proyectos}></CardContainer>
         : 

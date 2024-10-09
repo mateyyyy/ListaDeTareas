@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styles from './AddForm.module.css'
 import { post } from '../../../utils/ApiRequests';
-
-export default function AddForm({ type, updateState }) {
+import { bodySet } from '../../../utils/bodySetter';
+export default function AddForm({ type, updateState, idProject, idEpic }) {
 
   const [showForm, setShowForm] = useState(false); 
   const [showError, setShowError] = useState(false); 
@@ -12,24 +12,24 @@ export default function AddForm({ type, updateState }) {
 
   const add = (e) => {
     e.preventDefault();
-    const bodySend = {
-      "name": name,
-      "members": localStorage.getItem('userID'),
-      "description": description,
-      "icon": null
-    };
-    
-    post(`/projects`, bodySend)
+    const bodySend = bodySet(type, name, description, idProject, idEpic );
+    console.log(bodySend);
+    post(`/${type}`, bodySend)
       .then((data) => {
-          if(data.status!="fail"){
+          if(data.status!="fail" && data.status!="error"){
           console.log(data),
           updateState(),
           setShowForm(false)
           setShowError(false)
         }
         else{
-          setShowError(true),
-          setErrMessage(data.data.name)
+          setShowError(true)
+          if(type=='projects'){
+            setErrMessage(data.data.name)
+          }
+          if(type=='epics'){
+            setErrMessage(data.message.message)
+          }
         }
       })
   }

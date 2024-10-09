@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Stories.module.css'
+import { FaPencilAlt } from "react-icons/fa";
+import Edit from '../Edit';
+
 export default function Stories({tasks, setNewState, newState}) {
 
   const changeState = (task) => {
@@ -34,6 +37,7 @@ export default function Stories({tasks, setNewState, newState}) {
               <div className={styles.inputAndName}>
                 <input onChange={()=>{changeState(elemento)}} className={styles.checkbox} type='checkbox' checked={elemento.done}/>
                 {elemento.name}
+              <Edit></Edit>              
               </div>
               {elemento.description!=null ? 
                 <>
