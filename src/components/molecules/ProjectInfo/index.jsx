@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import styles from './InfoDisplay.module.css'
 import Card from '../Card'
-export default function InfoDisplay({element}) {
+import Edit from '../Edit';
+import DeleteButton from '../DeleteButton';
+
+export default function InfoDisplay({element, url, updateState}) {
 
   const [allContent, setAllContent] = useState(false);
   return (
     <div id={styles.PrinDiv}>
+      <div id={styles.secDiv}>
       <button id={styles.buton} onClick={() => (setAllContent(!allContent))}>
         <Card content={ 
           <>
@@ -14,6 +18,7 @@ export default function InfoDisplay({element}) {
               <p>Descripcion : {element.description.slice(0,25)}</p>
               :
               (null)}
+
             {allContent ?
             <div id={styles.FloatInfo}>
               <h3>Nombre : {element.name}</h3>
@@ -41,6 +46,11 @@ export default function InfoDisplay({element}) {
       }>
       </Card>
       </button>
+      <div id={styles.iconCont}>
+        <Edit url={`/${url}/${element._id}`} updateState={updateState}></Edit>
+        <DeleteButton url={`/${url}/${element._id}`} updateState={updateState}></DeleteButton>
+      </div>
+      </div>
     </div>
   )
 }

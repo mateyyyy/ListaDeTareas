@@ -2,18 +2,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+#secDiv{
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    justify-content: center;
+    height: auto;
+    width: auto;
+}
+
+#iconCont{
+    display: flex;
+    flex-direction: row;
 }
 
 #buton{
     display: flex;
-    justify-content: center;
-    align-content: center;
     background: none;
     outline: none;
     border: none;
-    box-sizing: border-box;
-    margin-bottom: 2rem;
-    
+    height: auto;
+    width: auto;
 }
 
 #FloatInfo{

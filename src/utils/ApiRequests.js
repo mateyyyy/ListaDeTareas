@@ -29,7 +29,7 @@ export const get = (url, setElements) => {
     return response;
 }
 
-export const post = async (url, body) => {
+export const post = (url, body) => {
     const response = fetch(`${BASE_URL}${url}`
         ,{
             method: 'POST',
@@ -39,5 +39,32 @@ export const post = async (url, body) => {
         .then((response) => {
             return response.json()}
         );
-    return await response;
+    return response;
+}
+
+export const patch = (url, body) => {
+  const response = fetch(`${BASE_URL}${url}`
+    ,{
+        method: 'PATCH',
+        headers: header,
+        body: JSON.stringify(body),
+    })
+    .then((response) => {
+        return response.json()}
+    );
+return response;
+}
+
+
+export const deleteFunc = (url) => {
+  const response = fetch(`${BASE_URL}${url}`
+    ,{
+        method: 'DELETE',
+        headers: header,
+    })
+    .then((response) => {
+        return response.json()}
+    );
+return response;
+
 }

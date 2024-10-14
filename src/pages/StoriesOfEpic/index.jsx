@@ -20,6 +20,9 @@ export default function StoriesOfEpic() {
   const [description, setDescription] = useState('');
   const [due, setDue] = useState('');
 
+  const updateState = () => {
+    setNewState(newState+1);
+  }
 
   const addTask = (e) => {
     e.preventDefault();
@@ -62,7 +65,7 @@ export default function StoriesOfEpic() {
           <h2>TASK</h2>
           <form action="" id={styles.form} onSubmit={(e) => (addTask(e))}>
             {showError? <h3>Error : {errMessage}</h3>: null}
-            <input type="text" className={styles.input} placeholder='Nombre' value={name}  onChange={(e) => setName(e.target.value)}/>
+            <input type="text" required={true} className={styles.input} placeholder='Nombre' value={name}  onChange={(e) => setName(e.target.value)}/>
             <input type="text" className={styles.input} placeholder='Descripcion' value={description} onChange={(e) => setDescription(e.target.value)}/>
             <input type="text" className={styles.input} placeholder='Fecha limite' value={due}  onChange={(e) => setDue(e.target.value)}/>
             <button>ADD</button>
@@ -70,7 +73,7 @@ export default function StoriesOfEpic() {
         </div>: null}
         
 
-        <Stories tasks={tasks} setNewState={setNewState} newState={newState}></Stories>
+        <Stories tasks={tasks} updateState={updateState}></Stories>
       </div>
  </>
   )

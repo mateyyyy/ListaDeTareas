@@ -1,4 +1,4 @@
-.editButon {
+#deleteButon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +10,8 @@
     outline: none;
 }
 
-#formContainer{
+
+#floatingDiv{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -26,8 +27,9 @@
     border-radius: 16px;
 }
 
-#form{
+#butonCont{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
+    font-size: 1.5rem;
 }

@@ -29,13 +29,13 @@ export default function Project() {
   return (
     <>
       <HeaderGoBack titulo={"Proyecto"}></HeaderGoBack>
-      <AddForm type={'epics'} updateState={updateState} idProject={n}></AddForm>
 
       {project.length == 0 ? 
         <p>CARGANDO...</p> 
       : 
       <>
-      <InfoDisplay element={project}></InfoDisplay>
+      <InfoDisplay element={project} url={'projects'} updateState={updateState}></InfoDisplay>
+      <AddForm type={'epics'} updateState={updateState} idProject={n}></AddForm>
       <CardContainer elements={epics}></CardContainer>   
       </>
       }

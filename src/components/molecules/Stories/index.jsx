@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styles from './Stories.module.css'
-import { FaPencilAlt } from "react-icons/fa";
 import Edit from '../Edit';
+import DeleteButon from '../DeleteButton';
 
-export default function Stories({tasks, setNewState, newState}) {
+export default function Stories({tasks, updateState}) {
 
   const changeState = (task) => {
     fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/${task._id}`, {
@@ -23,7 +23,7 @@ export default function Stories({tasks, setNewState, newState}) {
     })
     .then((response) => response.json())
     .then((data) => {
-      setNewState(newState+1);
+      updateState();
     })
   }
 
@@ -37,7 +37,8 @@ export default function Stories({tasks, setNewState, newState}) {
               <div className={styles.inputAndName}>
                 <input onChange={()=>{changeState(elemento)}} className={styles.checkbox} type='checkbox' checked={elemento.done}/>
                 {elemento.name}
-              <Edit></Edit>              
+              <Edit url={`/tasks/${elemento._id}`} updateTask={updateState}></Edit>
+              <DeleteButon url={`/tasks/${elemento._id}`} updateState={updateState}></DeleteButon>         
               </div>
               {elemento.description!=null ? 
                 <>
