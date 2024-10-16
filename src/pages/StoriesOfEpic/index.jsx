@@ -13,7 +13,7 @@ export default function StoriesOfEpic() {
   const [showError, setShowError] = useState(false);
   const [errMessage, setErrMessage] = useState('');
 
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(undefined);
   const [newState, setNewState] = useState(0);
 
   const [name, setName] = useState('');
@@ -51,7 +51,8 @@ export default function StoriesOfEpic() {
   }
 
   useEffect(() => {
-    get(`/stories/${j}/tasks`, setTasks);
+    get(`/stories/${j}/tasks`, setTasks)
+    .then((data) => console.log(data));
   },[newState])
 
   return (
@@ -67,13 +68,22 @@ export default function StoriesOfEpic() {
             {showError? <h3>Error : {errMessage}</h3>: null}
             <input type="text" required={true} className={styles.input} placeholder='Nombre' value={name}  onChange={(e) => setName(e.target.value)}/>
             <input type="text" className={styles.input} placeholder='Descripcion' value={description} onChange={(e) => setDescription(e.target.value)}/>
-            <input type="text" className={styles.input} placeholder='Fecha limite' value={due}  onChange={(e) => setDue(e.target.value)}/>
+            <input type="text" className={styles.input} placeholder='Fecha limite (YYYY-MM-DD)' value={due}  onChange={(e) => setDue(e.target.value)}/>
             <button>ADD</button>
           </form>
         </div>: null}
         
-
-        <Stories tasks={tasks} updateState={updateState}></Stories>
+      {
+        tasks!=undefined? 
+        (tasks.length==0?
+           <p>No hay tareas</p> : 
+           <Stories tasks={tasks} updateState={updateState}></Stories>
+          )
+        :
+        (<p>Cargando...</p>)
+      }
+      
+        
       </div>
  </>
   )

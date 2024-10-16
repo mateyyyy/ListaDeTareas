@@ -9,7 +9,7 @@ export default function Edit({ url,updateState }) {
     const [showForm, setShowForm] = useState(false);
 
     const editTask = (e) => {
-        e.preventDefault(); // Evitar que el formulario se envíe y recargue la página
+        e.preventDefault(); 
 
         if(name!='' || description!=''){
             const body = {
@@ -19,9 +19,8 @@ export default function Edit({ url,updateState }) {
         
             patch(url, body).then((data) => {
                 console.log(data);
-                // Aquí puedes manejar el cierre del formulario o la actualización del estado
-                setShowForm(false); // Opcional: cerrar el formulario tras editar
-                setName(''); // Opcional: limpiar los inputs tras editar
+                setShowForm(false);
+                setName('');
                 setDescription('');
                 updateState();
             });

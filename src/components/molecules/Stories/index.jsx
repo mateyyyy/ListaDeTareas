@@ -30,15 +30,13 @@ export default function Stories({tasks, updateState}) {
   return (
         <>
             <div id={styles.cardContainer}> 
-              {tasks.length==0?
-              <p>cargando...</p>:
-              tasks.map((elemento) => 
+              {tasks.map((elemento) => 
               <div key={elemento._id} className={styles.story}>
               <div className={styles.inputAndName}>
                 <input onChange={()=>{changeState(elemento)}} className={styles.checkbox} type='checkbox' checked={elemento.done}/>
                 {elemento.name}
-              <Edit url={`/tasks/${elemento._id}`} updateTask={updateState}></Edit>
-              <DeleteButon url={`/tasks/${elemento._id}`} updateState={updateState}></DeleteButon>         
+              <Edit url={`/tasks/${elemento._id}`} updateState={updateState}></Edit>
+              <DeleteButon url={`/tasks/${elemento._id}`} updateState={updateState} type={'task'}></DeleteButon>         
               </div>
               {elemento.description!=null ? 
                 <>

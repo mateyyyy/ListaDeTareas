@@ -4,7 +4,7 @@ import { get } from '../../utils/ApiRequests';
 import AddForm from '../../components/molecules/AddForm';
 
 export default function Projects() {
-    const [proyectos, setProyectos] = useState([]); 
+    const [proyectos, setProyectos] = useState(undefined); 
     const [newState, setNewState] = useState(0);
 
     const updateState = () => {
@@ -18,10 +18,16 @@ export default function Projects() {
     return (
       <>
         <AddForm type={'projects'} updateState={updateState}></AddForm>
-        {proyectos.length > 0 ?
-          <CardContainer elements={proyectos}></CardContainer>
-        : 
-          <p>No hay proyectos disponibles</p>
+        {proyectos==undefined ? 
+        <><p>Cargando</p></> 
+          :
+        ( 
+          proyectos.length > 0 ?
+            <CardContainer elements={proyectos}></CardContainer>
+          : 
+            <p>No hay proyectos disponibles</p>
+        )
+          
         }
       </>
     )

@@ -10,7 +10,7 @@ import AddForm from '../../components/molecules/AddForm'
 export default function Project() {
 
   const { n } = useParams();
-  const [epics,setEpics] = useState([]); 
+  const [epics,setEpics] = useState(undefined); 
   const [project, setProject] = useState([]);
 
   const [newState, setNewState] = useState(0);
@@ -29,16 +29,20 @@ export default function Project() {
   return (
     <>
       <HeaderGoBack titulo={"Proyecto"}></HeaderGoBack>
-
-      {project.length == 0 ? 
-        <p>CARGANDO...</p> 
-      : 
-      <>
-      <InfoDisplay element={project} url={'projects'} updateState={updateState}></InfoDisplay>
-      <AddForm type={'epics'} updateState={updateState} idProject={n}></AddForm>
-      <CardContainer elements={epics}></CardContainer>   
-      </>
-      }
+      {project.length!=0 ?           <InfoDisplay element={project} url={'projects'} updateState={updateState}></InfoDisplay>
+: null
+}
+      {epics == undefined ? <p>Cargando...</p> :
+      ( 
+        epics.length == 0 ? 
+          <p>No hay proyectos disponibles...</p> 
+          : 
+          <>
+          <AddForm type={'epics'} updateState={updateState} idProject={n}></AddForm>
+          <CardContainer elements={epics}></CardContainer>   
+          </>
+      )
+    }
       
     </>
   )

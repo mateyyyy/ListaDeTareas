@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { MdDelete } from "react-icons/md";
 import styles from './DeleteButton.module.css';
 import { deleteFunc } from '../../../utils/ApiRequests';
-export default function DeleteButon({updateState, url}) {
+import { useNavigate } from 'react-router-dom';
+export default function DeleteButon({updateState, url,  type}) {
 
+    const navigate = useNavigate();
     const [confirm, setConfirm] = useState(false);
     const [showError, setShowError] = useState(false);
 
@@ -14,6 +16,9 @@ export default function DeleteButon({updateState, url}) {
         .then((data) => {
             if(data.status=='success'){
                 updateState();
+                if(type!='task'){
+                    navigate(-1);
+                }
             }
             else{
                 setShowError(!showError);
