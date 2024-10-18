@@ -5,7 +5,7 @@ import Card from '../../components/molecules/Card';
 export default function StoriesGral() {
     const [stories, setStories] = useState([]); 
     useEffect(()=>{
-    fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks`, {
+    fetch(`http://localhost:3000/stories`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -13,6 +13,7 @@ export default function StoriesGral() {
       }})
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       setStories(data.data.map((elemento) => elemento));
     })
     .catch((error) => {

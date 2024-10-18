@@ -12,13 +12,13 @@ export default function ProtectedRoute() {
                 'auth': token,
             };
 
-            fetch('https://lamansysfaketaskmanagerapi.onrender.com/api/users', {
+            fetch('http://localhost:3000/users', {
                 method: 'GET',
                 headers: header,
             })
             .then((response) => response.json())
             .then((data) => {
-                if (data.success === false) {
+                if (data.status == 'fail') {
                     console.log(data);
                     setIsAuthenticated(false); // No autenticado
                 } else {
@@ -35,7 +35,7 @@ export default function ProtectedRoute() {
     }, [token]);
 
     if (isAuthenticated === null) {
-        return null; // Mientras espera la respuesta de autenticación
+        return null;
     }
 
     return isAuthenticated ? null : <Navigate to="/login" />;

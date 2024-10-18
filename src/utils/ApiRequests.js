@@ -1,4 +1,4 @@
-const BASE_URL = 'https://lamansysfaketaskmanagerapi.onrender.com/api';
+const BASE_URL = 'http://localhost:3000';
 
 const header = {
     'Content-Type': 'application/json',
@@ -13,15 +13,14 @@ export const get = (url, setElements) => {
         })
         .then((response) => {
             return response.json()})
-            .then((data) => {
-                console.log('Respuesta de la API:', data);
-               
-                if (data.data) {
-                  setElements(data.data);
-                } else {
-                  setElements(data);
-                }
-              })
+        .then((data) => {
+            console.log('Respuesta de la API:', data);
+            if (data.data) {
+                setElements(data.data);
+            } else {
+                setElements(data);
+            }
+            })
         .catch((error) => {
           console.error('Error:', error);
         });
@@ -67,4 +66,25 @@ export const deleteFunc = (url) => {
     );
 return response;
 
+}
+
+export const haveChildren = (url) => {
+    const response = fetch(`${BASE_URL}${url}`
+        ,{
+            method: 'GET',
+            headers: header,
+        })
+        .then((response) => {
+            return response.json()})
+        .then((data) => {
+           if(data.data.length==0){
+            return false;
+           }
+           else{
+            return true;
+           }
+        });
+        ;
+    
+    return response;
 }

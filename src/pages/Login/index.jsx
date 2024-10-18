@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Login() {
 
     const data = {
-      "username" : "luciana",
+      "username" : "matias",
       "password": "1234"
     }
 
@@ -14,7 +14,7 @@ export default function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        fetch("https://lamansysfaketaskmanagerapi.onrender.com/api/login", {
+        fetch("http://localhost:3000/login", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -24,8 +24,9 @@ export default function Login() {
           .then((response) => response.json())
           .then((data) => {
             console.log('Success:', data);
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('userID', data.user._id);
+            console.log('token : ' + data.data.token);
+            localStorage.setItem('token', data.data.token);
+            localStorage.setItem('userID', data.data.user._id);
             navigate('/');
         })
           .catch((error) => {

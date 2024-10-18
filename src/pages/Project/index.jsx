@@ -22,27 +22,31 @@ export default function Project() {
   project.description;
 
   useEffect(()=>{
-    get(`/projects/${n}/epics`, setEpics);      
+    get(`/projects/${n}/epics`, setEpics);
     get(`/projects/${n}`, setProject)
   },[n, newState]);
 
   return (
     <>
-      <HeaderGoBack titulo={"Proyecto"}></HeaderGoBack>
-      {project.length!=0 ?           <InfoDisplay element={project} url={'projects'} updateState={updateState}></InfoDisplay>
-: null
-}
+      <HeaderGoBack titulo={"Proyecto"}></HeaderGoBack>      
+
+      {project.length!=0 ?           
+        <InfoDisplay element={project} url={'projects'} updateState={updateState}></InfoDisplay>
+      : null
+      }    
+      <AddForm type={'epics'} updateState={updateState} idProject={n}></AddForm>
+
       {epics == undefined ? <p>Cargando...</p> :
       ( 
         epics.length == 0 ? 
           <p>No hay proyectos disponibles...</p> 
           : 
           <>
-          <AddForm type={'epics'} updateState={updateState} idProject={n}></AddForm>
           <CardContainer elements={epics}></CardContainer>   
           </>
       )
     }
+
       
     </>
   )
