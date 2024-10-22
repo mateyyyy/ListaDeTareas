@@ -1,18 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import styles from './Login.module.css'
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-
-    const data = {
-      "username" : "matias",
-      "password": "1234"
-    }
-
     const navigate = useNavigate();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const data = {
+          "username" : username,
+          "password": password
+        }
         
         fetch("http://localhost:3000/login", {
           method: 'POST',
@@ -41,8 +44,8 @@ export default function Login() {
             <p>Please enter your login and password</p>
             <form action="" onSubmit={handleSubmit} id={styles.formContainer}>
                 <div id={styles.inputContainer}>
-                    <input placeholder='Username' className={styles.Input} type="text" name="" id="" />
-                    <input placeholder='Password' className={styles.Input} type="password" name="" id="" />
+                    <input placeholder='Username' value={username} onChange={(e) => {setUsername(e.target.value)}} className={styles.Input} type="text" name="" id="" />
+                    <input placeholder='Password' value={password} onChange={(e) => {setPassword(e.target.value)}} className={styles.Input} type="password" name="" id="" />
                 </div>
                 <button id={styles.Buton}>Login</button>
             </form>

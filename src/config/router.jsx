@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import ProtectedRoute from "../components/molecules/ProtectedRoute";
 import StoriesOfEpic from "../pages/StoriesOfEpic";
 import StoriesGral from "../pages/StoriesGral";
+import Settings from "../pages/Settings";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: "my-stories",
         element: <div><ProtectedRoute/><StoriesGral /></div>,
+      },
+      {
+        path: "settings",
+        element: <div><ProtectedRoute/><Settings></Settings></div>,
       },
     ],
   },
@@ -39,11 +44,6 @@ export const router = createBrowserRouter([
   {
     path: "my-projects/:n/:m/:j",
     element: <div><ProtectedRoute/><StoriesOfEpic /></div>,
-  },
-
-  {
-    path: "/settings",
-    element: <div><ProtectedRoute/><h1>Settings</h1></div>,
   },
 
   {

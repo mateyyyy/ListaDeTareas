@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaPencilAlt } from "react-icons/fa";
-import styles from './Edit.module.css';
+import styles from './Edit.module.scss';
 import { patch } from '../../../utils/ApiRequests';
 
 export default function Edit({ url,updateState }) {
@@ -30,6 +30,13 @@ export default function Edit({ url,updateState }) {
         }
     };
 
+    const handleCancel = () => {
+        setShowForm(false); // Cierra el formulario
+        // Restablecer campos si es necesario
+        setName('');
+        setDescription('');
+    };
+
     return (
         <>
             <button className={styles.editButon} onClick={() => setShowForm(!showForm)}>
@@ -38,7 +45,7 @@ export default function Edit({ url,updateState }) {
             {showForm && (
                 <div id={styles.formContainer}>
                     <h2>EDIT</h2>
-                    <form onSubmit={editTask} id={styles.form}>
+                    <form onSubmit={editTask} className={styles.form}>
                         <input
                             type="text"
                             placeholder='name'
@@ -51,8 +58,11 @@ export default function Edit({ url,updateState }) {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
-                        <button type="submit">Editar</button>
-                    </form>
+                        <div className={styles.buttonContainer}>
+                            <button type="submit">Save Changes</button>
+                            <button type="button" className={styles.cancelButton} onClick={handleCancel}>Cancel</button>
+                        </div>
+                        </form>
                 </div>
             )}
         </>

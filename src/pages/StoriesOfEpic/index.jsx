@@ -31,8 +31,8 @@ export default function StoriesOfEpic() {
       "name": name,
       "description": description,
       "story": j,
-      "created": "2022-04-10T21:59:24.063Z",
-      "due": due,
+      "created": Date.now(),
+      "dueDate": due,
     };
     
     post(`/tasks`, bodySend)

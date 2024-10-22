@@ -9,6 +9,9 @@ export const MenuContext = createContext();
 export default function VentanaPrincipal() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+
+  
+
   var titulo = "";
   switch (location.pathname){
     case '/':
@@ -20,14 +23,16 @@ export default function VentanaPrincipal() {
     case '/my-stories':
       titulo = "Mis historias";
       break;
+    case '/settings':
+      titulo = "Configuracion";
   }
 
   return (
   <>
     <MenuContext.Provider value={{isOpen, setIsOpen}}>
-
       <MenuDesplegado></MenuDesplegado>
       <Header titulo={titulo}/>
+
 
     </MenuContext.Provider>
 

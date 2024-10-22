@@ -12,6 +12,10 @@ export default function AddForm({ type, updateState, idProject, idEpic }) {
 
   const add = (e) => {
     e.preventDefault();
+    if(name=='' && description==''){
+      setShowForm(false)
+    }
+    else{
     const bodySend = bodySet(type, name, description, idProject, idEpic );
     console.log(bodySend);
     post(`/${type}`, bodySend)
@@ -32,6 +36,7 @@ export default function AddForm({ type, updateState, idProject, idEpic }) {
           }
         }
       })
+    }
   }
 
   return (
