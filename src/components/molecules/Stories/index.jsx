@@ -35,7 +35,7 @@ export default function Stories({tasks, updateState}) {
               <div className={styles.inputAndName}>
                 <input onChange={()=>{changeState(elemento)}} className={styles.checkbox} type='checkbox' checked={elemento.done}/>
                 {elemento.name}
-              <Edit url={`/tasks/${elemento._id}`} updateState={updateState}></Edit>
+              <Edit url={`/tasks/${elemento._id}`} updateState={updateState} nameElement={elemento.name} descriptionElement={elemento.description}></Edit>
               <DeleteButon url={`/tasks/${elemento._id}`} updateState={updateState} type={'task'}></DeleteButon>         
               </div>
               {elemento.description!=null ? 

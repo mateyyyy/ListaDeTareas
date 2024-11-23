@@ -47,7 +47,7 @@ export default function InfoDisplay({element, url, updateState}) {
       </Card>
       </button>
       <div id={styles.iconCont}>
-        <Edit url={`/${url}/${element._id}`} updateState={updateState}></Edit>
+        <Edit url={`/${url}/${element._id}`} updateState={updateState} nameElement={element.name} descriptionElement={element.description}></Edit>
         <DeleteButton url={`/${url}/${element._id}`} updateState={updateState}></DeleteButton>
       </div>
       </div>

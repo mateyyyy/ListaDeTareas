@@ -3,7 +3,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import styles from './Edit.module.scss';
 import { patch } from '../../../utils/ApiRequests';
 
-export default function Edit({ url,updateState }) {
+export default function Edit({ url,updateState, nameElement, descriptionElement }) {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [showForm, setShowForm] = useState(false);
@@ -31,8 +31,7 @@ export default function Edit({ url,updateState }) {
     };
 
     const handleCancel = () => {
-        setShowForm(false); // Cierra el formulario
-        // Restablecer campos si es necesario
+        setShowForm(false);
         setName('');
         setDescription('');
     };
@@ -48,13 +47,13 @@ export default function Edit({ url,updateState }) {
                     <form onSubmit={editTask} className={styles.form}>
                         <input
                             type="text"
-                            placeholder='name'
+                            placeholder={nameElement != '' ? nameElement : 'name'}
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
                         <input
                             type="text"
-                            placeholder='description'
+                            placeholder={descriptionElement != '' ? descriptionElement : 'descripcion'}
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />

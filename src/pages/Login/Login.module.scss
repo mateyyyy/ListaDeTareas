@@ -29,12 +29,13 @@ p{
     color: #757575;
 }
 
-#Buton{
+.Buton{
     background: none;
     border: #860A70 1px solid;
+    outline: none;
 }
 
-#formContainer{
+.formContainer{
     padding: 15px;
 }
 
@@ -48,3 +49,23 @@ p{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(120,9,121,1) 52%, rgba(255,12,0,1) 100%);
 }
+
+.selected{
+    background-color: #860A70;
+    border: #A80A58;
+    transition: .5s;
+}
+
+.notSelected{
+    background: none;
+    border: #A80A58;
+    transition: .5s;
+}
+
+#loginRegister {
+    display: flex;
+    flex-direction: row;
+    width: 5rem;
+    height: 6rem; 
+
+  }
