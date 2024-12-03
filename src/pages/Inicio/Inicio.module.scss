@@ -54,3 +54,12 @@
         text-align: justify;
     }   
 }
+
+@media (max-width: 768px) {
+    #imgAndInfo{
+        img {
+            width: 100%;
+        }
+        font-size: 50%;
+    }
+}

@@ -30,7 +30,6 @@ export default function Inicio() {
     .then((data) => {
       setName(`${data.data.name.first} ${data.data.name.last}`);
     });
-
   fetch(`https://taskswithexpress.onrender.com/stories/user/${localStorage.getItem('userID')}`, {
     method: 'GET',
     headers: header,

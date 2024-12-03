@@ -41,7 +41,7 @@ export const post = (url, body) => {
     return response;
 }
 
-export const patch = (url, body) => {
+export const patch = (url, body, updateState = null) => {
   const response = fetch(`${BASE_URL}${url}`
     ,{
         method: 'PATCH',
@@ -49,6 +49,9 @@ export const patch = (url, body) => {
         body: JSON.stringify(body),
     })
     .then((response) => {
+        if(updateState!=null){
+            updateState();
+        }
         return response.json()}
     );
 return response;

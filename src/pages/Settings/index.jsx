@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './Settings.module.scss';
 import EditUser from '../../components/molecules/EditUser';
 import { useNavigate } from 'react-router-dom';
-
+import { get } from '../../utils/ApiRequests';
 export default function Settings() {
     const [info, setInfo] = useState(null);
     const navigate = useNavigate();
@@ -22,17 +22,7 @@ export default function Settings() {
       setNewState(newState+1);
     }
     useEffect(() => {
-        fetch(`https://taskswithexpress.onrender.com/users/${localStorage.getItem('userID')}`, {
-            method: 'GET',
-            headers: header,
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            setInfo(data.data);
-        })
-        .catch((error) => {
-            console.error('Error fetching user data:', error);
-        });
+        get(`/users/${localStorage.getItem('userID')}`, setInfo);
     }, [newState]);
 
     return (

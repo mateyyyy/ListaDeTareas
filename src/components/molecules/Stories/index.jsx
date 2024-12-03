@@ -2,28 +2,17 @@ import React, { useState } from 'react'
 import styles from './Stories.module.scss'
 import DeleteButon from '../DeleteButton';
 import Edit from '../Edit';
+import { patch } from '../../../utils/ApiRequests';
 
 export default function Stories({ tasks, updateState, blur }) {
   let actualDate = Date();
   actualDate = new Date(actualDate);
+
   const changeState = (task) => {
     console.log(task.done);
     const state = !task.done;
 
-    fetch(`https://taskswithexpress.onrender.com/tasks/${task._id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'auth': localStorage.getItem('token'),
-      },
-      body: JSON.stringify({
-        done: state,
-      })
-    })
-      .then((response) => response.json())
-      .then(() => {
-        updateState();
-      })
+    patch(`/tasks/${task._id}`, {done: state}, updateState);
 
   }
 

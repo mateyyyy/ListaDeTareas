@@ -1,24 +1,13 @@
 import React, { useEffect,useState } from 'react'
 import styles from './StoriesGral.module.css'
 import Card from '../../components/molecules/Card';
+import Loading from '../../components/atoms/Loading';
+import { get } from '../../utils/ApiRequests';
 
 export default function StoriesGral() {
-    const [stories, setStories] = useState([]); 
-    useEffect(()=>{
-    fetch(`https://taskswithexpress.onrender.com/stories/user/${localStorage.getItem('userID')}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'auth': localStorage.getItem('token'),
-      }})
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      setStories(data.data.map((elemento) => elemento));
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+    const [stories, setStories] = useState(undefined); 
+    useEffect(()=>{ 
+      get(`/stories/user/${localStorage.getItem('userID')}`, setStories);
     },[]);
 
   return (
@@ -26,9 +15,10 @@ export default function StoriesGral() {
       <h3>Historias de usuario : </h3>
       <div id={styles.PrinDivProject}>
       <div id={styles.cardContainer}> 
-        {stories.map((story)=>
-          <Card content={story.name.slice(0,25)}></Card>
+        {stories==undefined? <Loading/> :  stories.map((story)=>
+          <Card content={`Nombre : ${story.name.slice(0,25)} Descripcion : ${story.description}`}></Card>
         )}
+       
       </div>
       </div>
     </div>
