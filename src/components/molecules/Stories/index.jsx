@@ -10,7 +10,7 @@ export default function Stories({ tasks, updateState, blur }) {
     console.log(task.done);
     const state = !task.done;
 
-    fetch(`http://localhost:3000/tasks/${task._id}`, {
+    fetch(`https://taskswithexpress.onrender.com/tasks/${task._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

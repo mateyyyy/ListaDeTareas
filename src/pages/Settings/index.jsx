@@ -22,7 +22,7 @@ export default function Settings() {
       setNewState(newState+1);
     }
     useEffect(() => {
-        fetch(`http://localhost:3000/users/${localStorage.getItem('userID')}`, {
+        fetch(`https://taskswithexpress.onrender.com/users/${localStorage.getItem('userID')}`, {
             method: 'GET',
             headers: header,
         })

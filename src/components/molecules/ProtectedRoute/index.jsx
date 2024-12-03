@@ -12,7 +12,7 @@ export default function ProtectedRoute() {
                 'auth': token,
             };
 
-            fetch('http://localhost:3000/Users', {
+            fetch('https://taskswithexpress.onrender.com/Users', {
                 method: 'GET',
                 headers: header,
             })

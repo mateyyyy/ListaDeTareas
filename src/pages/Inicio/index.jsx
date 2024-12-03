@@ -22,7 +22,7 @@ export default function Inicio() {
 
 
   useEffect(() => {
-  fetch(`http://localhost:3000/users/${localStorage.getItem('userID')}`, {
+  fetch(`https://taskswithexpress.onrender.com/users/${localStorage.getItem('userID')}`, {
     method: 'GET',
     headers: header,
   })
@@ -31,7 +31,7 @@ export default function Inicio() {
       setName(`${data.data.name.first} ${data.data.name.last}`);
     });
 
-  fetch(`http://localhost:3000/stories/user/${localStorage.getItem('userID')}`, {
+  fetch(`https://taskswithexpress.onrender.com/stories/user/${localStorage.getItem('userID')}`, {
     method: 'GET',
     headers: header,
   })
@@ -43,7 +43,7 @@ export default function Inicio() {
   .then((stories) => {
     stories.forEach((story) => {
       console.log(story._id);
-      fetch(`http://localhost:3000/stories/${story._id}/tasks`, {
+      fetch(`https://taskswithexpress.onrender.com/stories/${story._id}/tasks`, {
         method: 'GET',
         headers: header,
       })
