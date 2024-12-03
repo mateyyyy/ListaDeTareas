@@ -1,3 +1,5 @@
+@import '../../../utils/cssUtils.scss';
+
 .editButon {
     display: flex;
     justify-content: center;
@@ -11,11 +13,11 @@
 }
 
 #formContainer{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #2a2a2b;
+    background-color: $background-primary;
     display: flex;
     flex-direction: column;
     border-radius: 4px;
@@ -24,6 +26,7 @@
     padding: 1rem;
     border: white 1px solid;
     border-radius: 16px;
+    z-index: 1;
 }
 
 #form{
@@ -65,22 +68,19 @@
         padding: 0.75rem;
         border: none;
         border-radius: 8px;
-        background-color: #007bff;
+        background-color: $success-color;
         color: white;
         font-size: 1rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: #0056b3;
-        }
     }
 
     .cancelButton {
-        background-color: #dc3545;
-        
-        &:hover {
-            background-color: #c82333;
-        }
+        background-color: $error-color;
     }
+}
+
+.labelCont{
+    display: flex;
+    align-items: start;
 }

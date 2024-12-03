@@ -1,21 +1,21 @@
+@import '../../../utils/cssUtils.scss';
+
 #cardContainer{
-    width: 25%;
+    min-width: 25%;
     display: flex;
     justify-content: center;
     align-content: center;
     gap: 1rem;
     box-sizing: border-box;
-
 }
 
 .descripcionContainer{
     word-wrap: break-word;
     width: 100%;
-    font-size: 1.5rem;
 }
 
 .story{
-    font-size: 2rem;
+    
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -25,11 +25,30 @@
     padding: 16px;
     flex-wrap: wrap;
     box-sizing: border-box;
+    &:hover{
+        transition: .5s;
+        background-color: #181818;
+
+    }
+    transition: .5s;
+}
+
+.marked {
+    text-decoration: line-through;
 }
 
 .checkbox{
     transform: scale(2);
     margin-right: 1rem;
+
+}
+
+.fechaPasada{
+    color: $error-color;
+}
+
+.fechaGreen{
+    color: $success-color;
 }
 
 .editButon {
@@ -50,6 +69,8 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    position: relative;
+    font-size: 2rem;
 }
 
 .divisor{
@@ -72,4 +93,21 @@
         flex-wrap: wrap;
         gap: 1rem;
     }
+}
+
+.setBlur{
+    filter: blur(2px);
+    transition: .5s;
+}
+
+.editDel{
+    display: flex;
+
+}
+
+#textAndButtons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

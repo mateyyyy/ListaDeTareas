@@ -5,7 +5,7 @@ import Card from '../../components/molecules/Card';
 export default function StoriesGral() {
     const [stories, setStories] = useState([]); 
     useEffect(()=>{
-    fetch(`http://localhost:3000/stories`, {
+    fetch(`http://localhost:3000/stories/user/${localStorage.getItem('userID')}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export default function StoriesGral() {
       <div id={styles.PrinDivProject}>
       <div id={styles.cardContainer}> 
         {stories.map((story)=>
-          <Card content={story.name}></Card>
+          <Card content={story.name.slice(0,25)}></Card>
         )}
       </div>
       </div>

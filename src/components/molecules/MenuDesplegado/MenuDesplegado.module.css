@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    z-index: 15;
 }
 
 .Visible{
@@ -36,9 +37,9 @@
 
 #Encabezado{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 1rem;
 }
 

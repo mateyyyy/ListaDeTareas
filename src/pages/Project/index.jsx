@@ -6,12 +6,14 @@ import CardContainer from '../../components/molecules/CardContainer'
 import { get } from '../../utils/ApiRequests'
 import InfoDisplay from '../../components/molecules/ProjectInfo'
 import AddForm from '../../components/molecules/AddForm'
+import Loading from '../../components/atoms/Loading';
 
 export default function Project() {
 
   const { n } = useParams();
   const [epics,setEpics] = useState(undefined); 
-  const [project, setProject] = useState([]);
+  const [project, setProject] = useState(undefined);
+  const [blur, setBlur] = useState(false);
 
   const [newState, setNewState] = useState(0);
 
@@ -19,32 +21,33 @@ export default function Project() {
     setNewState(newState+1);
   }
 
-  project.description;
-
   useEffect(()=>{
     get(`/projects/${n}/epics`, setEpics);
-    get(`/projects/${n}`, setProject)
+    get(`/projects/${n}`, setProject);
   },[n, newState]);
 
   return (
     <>
       <HeaderGoBack titulo={"Proyecto"}></HeaderGoBack>      
 
-      {project.length!=0 ?           
-        <InfoDisplay element={project} url={'projects'} updateState={updateState}></InfoDisplay>
-      : null
+      {project != undefined ?           
+        <>
+          <InfoDisplay element={project} url={'projects'} updateState={updateState} blur={blur}></InfoDisplay>
+        </>
+      : <Loading/>
       }    
-      <AddForm type={'epics'} updateState={updateState} idProject={n}></AddForm>
+      <AddForm type={'epics'} updateState={updateState} idProject={n} setBlur={setBlur} blur={blur}></AddForm>
 
-      {epics == undefined ? <p>Cargando...</p> :
-      ( 
-        epics.length == 0 ? 
-          <p>No hay proyectos disponibles...</p> 
-          : 
-          <>
-          <CardContainer elements={epics}></CardContainer>   
-          </>
-      )
+      {epics != undefined ? 
+      (  
+        epics.length>0 ? (
+        <>
+          <CardContainer elements={epics} blur={blur}></CardContainer>  
+        </>) : (
+        <p>No hay epicas...</p>)
+      ):
+      <Loading></Loading>
+      
     }
 
       

@@ -8,9 +8,7 @@ export const MenuContext = createContext();
 
 export default function VentanaPrincipal() {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
-
-  
+  const [isOpen, setIsOpen] = useState(false);  
 
   var titulo = "";
   switch (location.pathname){
@@ -30,10 +28,8 @@ export default function VentanaPrincipal() {
   return (
   <>
     <MenuContext.Provider value={{isOpen, setIsOpen}}>
-      <MenuDesplegado></MenuDesplegado>
-      <Header titulo={titulo}/>
-
-
+        <MenuDesplegado />
+        <Header titulo={titulo} />
     </MenuContext.Provider>
 
   </>  

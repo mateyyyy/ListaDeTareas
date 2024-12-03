@@ -1,4 +1,4 @@
-export const bodySet = (type, name, description, idProject, idEpic) =>{
+export const bodySet = (type, name, description, idProject, idEpic, idStory, startDate) =>{
     if(type=="stories"){
         return {
         "assignedTo": [],
@@ -7,7 +7,8 @@ export const bodySet = (type, name, description, idProject, idEpic) =>{
         "name": name,
         "description": description,
         "epic": idEpic,
-        "created": "2022-02-07T21:44:26.346Z",
+        "created": Date.now(),
+        "owner": localStorage.getItem('userID')
         };
     }
 
@@ -28,5 +29,18 @@ export const bodySet = (type, name, description, idProject, idEpic) =>{
         "icon": null
         };
     }
+
+    if(type=="tasks"){
+        return {      
+            "done": false,
+            "name": name,
+            "description": description,
+            "story": idStory,
+            "created": Date.now(),
+            "dueDate": startDate,
+          };
+      }
+
+
 
 }

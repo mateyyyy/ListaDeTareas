@@ -14,7 +14,7 @@ export default function MenuDesplegado() {
                     <button onClick={() => setIsOpen(!isOpen)} className={styles.botonNav}>
                         <IoIosArrowBack />
                     </button>
-                    <h1>Marca</h1>
+                    <img src="src\assets\logoEmpresa.png" alt="" width={"50%"}/>
                 </div>
                 <div id={styles.Nav}>
                     <Link to={"/"} onClick={() => setIsOpen(false)}>

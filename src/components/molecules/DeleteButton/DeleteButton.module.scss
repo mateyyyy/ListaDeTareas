@@ -1,3 +1,4 @@
+@import '../../../utils/cssUtils.scss';
 #deleteButon {
     display: flex;
     justify-content: center;
@@ -12,19 +13,20 @@
 
 
 #floatingDiv{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #2a2a2b;
+    background-color: $background-primary;
     display: flex;
     flex-direction: column;
-    border-radius: 4px;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    border: white 1px solid;
+    border: $border-color 1px solid;
     border-radius: 16px;
+    z-index: 15;
+    color: $text-primary;
 }
 
 #butonCont{
@@ -32,4 +34,17 @@
     flex-direction: row;
     gap: 1rem;
     font-size: 1.5rem;
+    button{
+        border: none;
+        outline: none;
+    }
+}
+
+#yesButton{
+    background-color: $success-color;
+}
+
+
+#noButton{
+    background-color: $error-color;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './Card.module.css'
+import styles from './Card.module.scss'
 import { useLocation } from 'react-router-dom'
 
 export default function Card({url, content}) {

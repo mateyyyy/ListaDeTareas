@@ -6,11 +6,18 @@
     gap: 1rem;
 }
 
+#prinDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #PrinDivProject{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 @media (max-width: 768px) {

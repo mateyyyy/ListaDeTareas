@@ -1,0 +1,24 @@
+@import '../../../utils/cssUtils.scss';
+
+#loading{
+    border: $text-primary 0.5rem dotted;
+    border-top: 0.25rem solid transparent;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+#loadingCont{
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

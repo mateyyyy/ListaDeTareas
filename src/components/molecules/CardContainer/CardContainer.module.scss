@@ -7,11 +7,11 @@
 }
 
 #PrinDivProject{
-    width: 100%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-content: center;
+    transition: .5s;
 }
 
 @media (max-width: 768px) {
@@ -28,4 +28,9 @@
         flex-wrap: wrap;
         gap: 1rem;
     }    
+}
+
+.setBlur{
+    filter: blur(2px);
+    transition: .5s;
 }

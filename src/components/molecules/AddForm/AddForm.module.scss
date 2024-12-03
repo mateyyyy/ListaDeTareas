@@ -1,0 +1,68 @@
+@import '../../../utils/cssUtils.scss';
+
+#formContainer{
+    position: absolute;
+    background-color: $background-primary;
+    border: 2px solid $background-primary;
+    padding: 2rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    button{
+        color: $text-secondary;
+    }
+    border: 1px $border-color solid;
+}
+
+#add {
+    margin: 1rem;
+}
+
+.labelCont{
+    display: flex;
+    justify-content: start;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+    border-radius: 1rem;
+    background-color: $background-primary;
+    padding: 1rem;
+}
+
+.input{
+    height: 2vh;
+    outline: none;
+    border: black 1px;
+    border-radius: 4px;
+    padding: 2vh;
+    background-color: $background-secondary;
+}
+
+hr {
+    height: 2px;
+    background-color: $background-secondary;
+    border: none;
+    width: 100%;
+  }
+
+#datePicker{
+    border: 1px solid $border-color;
+    border-radius: .25rem;
+}
+
+#cancelButton{
+    background-color: $error-color;
+}
+
+#addButton{
+    background-color: $success-color;
+}
